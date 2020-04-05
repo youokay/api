@@ -14,4 +14,19 @@ db.once('open', function () {
   console.log('Connected to DB!')
 });
 
-module.exports = db;
+const userGroup = new mongoose.Schema({
+  groupId: Number,
+  phoneNumbers: [String],
+})
+
+const Group = mongoose.model('Group', userGroup);
+
+const userSchema = new mongoose.Schema({
+  phone: String,
+  lastCheckIn: { type: Date, default: Date.now },
+  groups: { type: Array, default: Group }
+})
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = { db, User };

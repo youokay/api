@@ -1,8 +1,7 @@
 const db = require('../db/index');
-const User = require('../db/models/User');
-const Group = require('../db/models/Group');
+const { User } = require('../db/index');
 
-// curl -d "@data.json" -H "Content-Type: application/json" -X POST http://localhost:3000/data
+// curl -d "@data.json" -H "Content-Type: application/json" -X POST http://localhost:3000/seed
 
 module.exports = {
   checkIn (req, res, next) {
@@ -10,8 +9,10 @@ module.exports = {
     res.send('<h2>Thanks for checking in!</h2>');
   },
   seedUser (req, res, next) {
-    const data = new User(req.body);
-    data.save()
+    const data = req.body;
+    const number = data.phone;
+    const user = new User(data);
+    db.User.updateOne({phone: number}, user, {upsert: true})
       .then(result => {
         res.status(201).send(result);
       })
