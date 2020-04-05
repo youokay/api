@@ -1,0 +1,18 @@
+# chron jobs
+service/
+handler.jobs
+serverless.yml
+
+# keys / sensitive data
+example.pem
+youokay.pem
+.env
+.example.env
+sample/
+
+# gen files
+node_modules/
+package-lock.json
+
+# other
+README.md
