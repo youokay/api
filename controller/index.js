@@ -29,5 +29,25 @@ module.exports = {
         res.status(200).send(numbers)
       })
       .catch(err => res.status(400).json(`Error: ${err}`));
+  },
+  users(req, res, next) {
+    db.User.find()
+      .then((result) => {
+        const reformat = (data) => {
+          return data.map(user => {
+            let newUser = {};
+            const groups = _.flatten(result.map(user => user.groups));
+            const numbers = _.uniq(_.flatten(groups.map(group => group.phoneNumbers)));
+
+            newUser.phone = user.phone;
+            newUser.lastCheckIn = user.lastCheckIn;
+            newUser.groups = numbers
+
+            return newUser
+          });
+        };
+        res.status(200).send(reformat(result))
+      })
+      .catch(err => res.status(400).json(`Error: ${err}`));
   }
 }
