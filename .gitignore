@@ -4,6 +4,7 @@ youokay.pem
 
 # generated files
 node_modules
+.serverless/
 
 #sample data
 sample

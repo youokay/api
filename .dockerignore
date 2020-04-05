@@ -2,6 +2,7 @@
 service/
 handler.jobs
 serverless.yml
+.serverless/
 
 # keys / sensitive data
 example.pem

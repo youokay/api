@@ -6,12 +6,12 @@ app: youokay
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12
   region: 'us-east-1'
   frameworkVersion: ">=1.43.0"
   timeout: 900
   environment:
-    SERVICE_URL: ${file(./.env):SERVICE_URL}
+    SERVICE_URL: ${file(.env):SERVICE_URL}
 functions:
   checkin:
     handler: handler.checkin
