@@ -4,5 +4,5 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
 RUN npm install --production
-EXPOSE 3000
-CMD npm run start-docker
+EXPOSE 4444
+CMD npm run start

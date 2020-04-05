@@ -9,7 +9,8 @@ let obj = {
 if (process.env.NODE_ENV === 'production') {
   obj = Object.assign({}, obj, {
     DATABASE_URL: 'mongodb://database',
-    SERVICE_URL: process.env.SERVICE_CHART_URL
+    SERVICE_URL: process.env.SERVICE_URL,
+    SERVICE_PORT: `4444`
   });
 }
 

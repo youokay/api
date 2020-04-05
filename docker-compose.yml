@@ -5,7 +5,7 @@ services:
     depends_on:
       - mongo
     ports:
-      - '8080:8080'
+      - '8080:4444'
     links:
       - "mongo:db"
       - "mongo:database"
@@ -17,4 +17,4 @@ services:
     image: mongo
     restart: always
     ports:
-      - '1000:27017'
+      - '27017:27017'
