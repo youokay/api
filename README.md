@@ -1,4 +1,17 @@
-# api
+# You okay?
+If you find yourself in a disaster situation like the zombie apocalypse or a pandemic, you can check on all your friends and family automatically.
+
+# Summary
+If you've ever wondered about the safety of your friends and family during a catastrophic event, this automated service will regularly check up on them for you and alert you if they don't respond within a set timeframe.
+
+# Problem
+People, especially those who are alone, during a catastrophic event might need assistance and no one knows it.
+
+# Solution
+We send a link periodically that your loved one can click on and say they are ok. If they don't click on the link within a set timeframe someone will be alerted.
+
+# How to Get Started
+It's as easy as adding their phone numbers to our database and the service automatically sends a text message if they're ok and all they need to do is click a link.
 
 ### Development
 
