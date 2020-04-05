@@ -16,4 +16,4 @@ functions:
   checkin:
     handler: handler.checkin
     events:
-      - schedule: rate(1 minute)
+      - schedule: cron(15/2 21 * * ? *)
