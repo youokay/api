@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-//TODO add db
-const mongoUri = 'mongodb://localhost/';
+
+const mongoUri = 'mongodb://localhost/youokay';
 
 mongoose.connect(mongoUri, { useNewUrlParser: true });
 
