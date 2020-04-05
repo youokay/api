@@ -21,7 +21,7 @@ app.get('/', (req, res, next) => {
 // routes
 app.get('/checkin/:phone', controller.checkIn);
 app.post('/seed', controller.seedUser);
-app.get('/numbers/:phone', controller.numbers)
+app.get('/numbers', controller.numbers)
 
 // spin up
 app.listen(PORT, () => {

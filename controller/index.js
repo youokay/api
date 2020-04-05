@@ -22,9 +22,12 @@ module.exports = {
       });
   },
   numbers(req, res, next) {
-    const number = req.params.phone
-    db.User.findOne({ phone: number })
-      .then((result) => res.status(200).send(_.uniq(result.groups.map(group => group.phoneNumbers).flat())))
+    db.User.find({})
+      .then((result) => {
+        const groups = result.map(user => user.groups).flat()
+        const numbers = _.uniq(groups.map(group => group.phoneNumbers).flat())
+        res.send(numbers)
+      })
       .catch(err => res.status(400).json(`Error: ${err}`));
   }
 }
