@@ -2,8 +2,6 @@ const db = require('../db/index');
 const { User } = require('../db/index');
 var _ = require('lodash');
 
-// curl -d "@data.json" -H "Content-Type: application/json" -X POST http://localhost:3000/seed
-
 module.exports = {
   checkIn(req, res, next) {
     console.log('checked in');

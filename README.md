@@ -4,9 +4,9 @@
 
 1. clone repo
 2. go to root folder of repo and from the command line type
-    ```sh
-  npm install
-    ```
+  ```sh
+    npm install
+  ```
 3. Start up the dev server (uses nodemon) form the command line with
   ```sh
   npm run server:start
