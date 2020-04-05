@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server:start": "nodemon server/index.js"
+    "server:start": "nodemon server/index.js",
+    "start": "node server/index.js",
+    "build": "docker build -t manuelag19/youokay . && docker push manuelag19/youokay"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
+const config = require('../env.config.js');
 
-const mongoUri = 'mongodb://localhost/youokay';
+console.log('config.DATABASE_URL: ', config.DATABASE_URL);
+
+const mongoUri = `${config.DATABASE_URL}:/${config.DATABASE_NAME}`;
 
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
