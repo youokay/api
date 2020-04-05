@@ -6,8 +6,10 @@ var _ = require('lodash');
 
 module.exports = {
   checkIn(req, res, next) {
-    console.log('checked in');
-    res.send('<h2>Thanks for checking in!</h2>');
+    const number = req.params.phone;
+    db.User.updateOne({ phone: number }, { lastCheckIn: new Date })
+      .then((result) => res.status(200).send(result))
+      .catch(err => res.status(404).json(`Error: ${err}`));
   },
   seedUser(req, res, next) {
     const data = req.body;
