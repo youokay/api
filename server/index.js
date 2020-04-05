@@ -1,5 +1,6 @@
 const express = require('express');
-const PORT = 3000 || process.env.PORT;
+const config = require('../env.config.js');
+const PORT = config.SERVICE_PORT;
 const app = express();
 const controller = require('../controller/index');
 const db = require('../db/index.js');
@@ -17,6 +18,7 @@ app.get('/', (req, res, next) => {
   console.log('check');
 })
 
+// routes
 app.get('/checkin/:phone', controller.checkIn);
 app.post('/seed', controller.seedUser);
 app.get('/numbers/:phone', controller.numbers)

@@ -1,12 +1,20 @@
 require('dotenv').config()
 const accountSid = process.env.ACCOUNTSID;
 const authToken = process.env.AUTHTOKEN;
+const server = `${process.env.SERVICE_URL}`
 const client = require('twilio')(accountSid, authToken);
 
-client.messages
-  .create({
-    body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-    from: '+12052363233',
-    to: '+15093140982'
+const sendCheckin = (numbers) => {
+  numbers.forEach(number => {
+    const uniqueLink = `${server}/checkin/number`;
+    client.messages
+      .create({
+        body: `Click the link to checkin ${uniqueLink}`,
+        from: '+12052363233',
+        to: number
+      })
+      .then(message => console.log(message.sid));
   })
-  .then(message => console.log(message.sid));
+}
+
+module.exports = { sendCheckin }
