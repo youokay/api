@@ -6,7 +6,7 @@ const client = require('twilio')(accountSid, authToken);
 
 const sendCheckin = (numbers) => {
   numbers.forEach(number => {
-    const uniqueLink = `${server}/checkin/${number}`;
+    const uniqueLink = `${server}:8080/checkin/${number}`;
     client.messages
       .create({
         body: `Good morning! Click the link to checkin ${uniqueLink}`,

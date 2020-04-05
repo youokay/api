@@ -1,6 +1,7 @@
 // Daily checkin chron job
+require('dotenv').config();
 const axios = require('axios');
-const fetchNumbersURL = `http://localhost:4444/numbers`;
+const fetchNumbersURL = `${process.env.SERVICE_URL}:8080/numbers`;
 // twilio client
 const twilio = require('../controller/twilio');
 
@@ -17,3 +18,4 @@ exports.func = () => {
       console.log(err);
     })
 }
+
