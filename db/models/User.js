@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Groups = require('./Groups.js').schema;
 
 const userSchema = new mongoose.Schema({
-  phone: Number,
+  phone: String,
   lastCheckIn: Date,
-  groupId: [Groups]
+  groups: [Groups]
 })
 
 const User = mongoose.model('User', userSchema);

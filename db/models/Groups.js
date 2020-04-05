@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const userGroups = new mongoose.Schema({
-  groupId: Number,
-  phoneNumbers: [Number], // String?
+  groupId: String,
+  phoneNumbers: [String],
 })
 
 const Groups = mongoose.model('Groups', userGroups);
