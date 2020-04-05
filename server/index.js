@@ -19,7 +19,7 @@ app.get('/', (req, res, next) => {
 })
 
 // routes
-app.get('/checkin/:phone', controller.checkIn);
+app.put('/checkin/:phone', controller.checkIn);
 app.post('/seed', controller.seedUser);
 app.get('/numbers', controller.numbers)
 
