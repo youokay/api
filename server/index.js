@@ -21,7 +21,7 @@ app.get('/', (req, res, next) => {
 // routes
 // To check any of the routes from the command line you can use curl, for example for /seed
 // curl -d "@data.json" -H "Content-Type: application/json" -X POST http://localhost:4444/seed
-app.put('/checkin/:phone', controller.checkIn);
+app.get('/checkin/:phone', controller.checkIn);
 app.post('/seed', controller.seedUser);
 app.get('/numbers', controller.numbers)
 
