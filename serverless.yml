@@ -1,8 +1,8 @@
 service: daily-cron
 # our Serverless Dashboard account name
-tenant:
+tenant: manuelag19
 # our Serverless Dashboard application name
-app:
+app: youokay
 
 provider:
   name: aws
@@ -13,13 +13,8 @@ provider:
   environment:
     SERVICE_URL: ${file(./.env):SERVICE_URL}
 functions:
-  init:
+  checkin:
     handler: handler.checkin
     events:
-      # every Monday at 03:15 AM
-      - schedule: cron(15 3 ? * MON *)
-  transfer:
-    handler: handler.transfer
-    events:
-      # every Monday at 03:15 AM
-      - schedule: cron(15 3 ? * MON *)
+      # every 2 minutes
+      - schedule: rate(2 minutes)

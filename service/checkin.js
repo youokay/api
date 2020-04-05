@@ -17,5 +17,3 @@ exports.func = () => {
       console.log(err);
     })
 }
-
-exports.func();
