@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const Groups = require('./Groups.js').schema;
+const Group = require('./Group').schema;
 
 const userSchema = new mongoose.Schema({
   phone: String,
   lastCheckIn: Date,
-  groups: [Groups]
+  groups: [Group]
 })
 
 const User = mongoose.model('User', userSchema);
