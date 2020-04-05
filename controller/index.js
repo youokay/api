@@ -6,7 +6,7 @@ module.exports = {
   checkIn(req, res, next) {
     const number = req.params.phone;
     db.User.updateOne({ phone: number }, { lastCheckIn: new Date })
-      .then((result) => res.status(200).send(result))
+      .then((result) => res.status(200).send('<h1>Thanks for checking in! Stay Healthy</h1>'))
       .catch(err => res.status(404).json(`Error: ${err}`));
   },
   seedUser(req, res, next) {
