@@ -22,9 +22,9 @@ module.exports = {
   numbers(req, res, next) {
     db.User.find({})
       .then((result) => {
-        const groups = result.map(user => user.groups).flat()
-        const numbers = _.uniq(groups.map(group => group.phoneNumbers).flat())
-        res.send(numbers)
+        const groups = _.flatten(result.map(user => user.groups));
+        const numbers = _.uniq(_.flatten(groups.map(group => group.phoneNumbers)));
+        res.status(200).send(numbers)
       })
       .catch(err => res.status(400).json(`Error: ${err}`));
   }

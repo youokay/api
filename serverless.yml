@@ -1,0 +1,25 @@
+service: daily-cron
+# our Serverless Dashboard account name
+tenant:
+# our Serverless Dashboard application name
+app:
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: 'us-east-1'
+  frameworkVersion: ">=1.43.0"
+  timeout: 900
+  environment:
+    SERVICE_URL: ${file(./.env):SERVICE_URL}
+functions:
+  init:
+    handler: handler.checkin
+    events:
+      # every Monday at 03:15 AM
+      - schedule: cron(15 3 ? * MON *)
+  transfer:
+    handler: handler.transfer
+    events:
+      # every Monday at 03:15 AM
+      - schedule: cron(15 3 ? * MON *)
